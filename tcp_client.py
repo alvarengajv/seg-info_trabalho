@@ -9,7 +9,7 @@ def send_file(filename, host='127.0.0.1', port=5000):
         return
 
     # Criar um socket TCP/IP
-    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM) # IPv4, TCP
 
     # Conectar o socket à porta onde o servidor está escutando
     server_address = (host, port)

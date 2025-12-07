@@ -18,7 +18,7 @@ def run_tls_server(host='127.0.0.1', port=5001, output_file='received_file_tls.t
     # Vincular o socket à porta
     server_address = (host, port)
     print(f"Iniciando servidor TLS em {host}:{port}")
-    try:
+    try:    
         server_socket.bind(server_address)
     except OSError as e:
         print(f"Erro ao vincular à porta {port}: {e}")
@@ -46,7 +46,6 @@ def run_tls_server(host='127.0.0.1', port=5001, output_file='received_file_tls.t
                                 break
                             f.write(data)
                     print(f"Arquivo recebido e salvo em {output_file}")
-                    break # Uma requisição para este exemplo
             except ssl.SSLError as e:
                 print(f"Erro SSL: {e}")
             except Exception as e:

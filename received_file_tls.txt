@@ -1,0 +1,9 @@
+Este é um arquivo de teste para o trabalho de comparação entre TCP e TLS.
+Ele contém algum texto para verificar a integridade da transmissão.
+Vamos medir o tempo necessário para enviar este arquivo usando ambos os protocolos.
+Adicionando mais algumas linhas para torná-lo ligeiramente maior que a carga útil de um único pacote.
+Linha repetida para volume.
+Linha repetida para volume.
+Linha repetida para volume.
+Linha repetida para volume.
+Fim do arquivo.

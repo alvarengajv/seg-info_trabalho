@@ -11,7 +11,7 @@ def generate_certificates():
     # Gerar chave privada
     key = rsa.generate_private_key(
         public_exponent=65537,
-        key_size=4096,
+        key_size=2048,
     )
 
     # Criar certificado autoassinado

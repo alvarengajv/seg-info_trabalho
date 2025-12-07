@@ -16,7 +16,7 @@ def send_file_tls(filename, host='127.0.0.1', port=5001):
     context.verify_mode = ssl.CERT_NONE
 
     # Criar um socket TCP/IP
-    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM) # Socket não criptografado
 
     # Conectar o socket à porta onde o servidor está escutando
     server_address = (host, port)
@@ -27,7 +27,7 @@ def send_file_tls(filename, host='127.0.0.1', port=5001):
         sock.connect(server_address)
         
         # Envolver o socket
-        with context.wrap_socket(sock, server_hostname=host) as ssock:
+        with context.wrap_socket(sock, server_hostname=host) as ssock: # Socket TLS
             print(f"Conexão TLS estabelecida. Cifra: {ssock.cipher()}")
             
             start_time = time.time()
@@ -40,6 +40,7 @@ def send_file_tls(filename, host='127.0.0.1', port=5001):
                         break
                     ssock.sendall(data)
                     
+            ssock.shutdown(socket.SHUT_WR)
             end_time = time.time()
             duration = end_time - start_time
             
@@ -52,8 +53,7 @@ def send_file_tls(filename, host='127.0.0.1', port=5001):
         print(f"Erro SSL: {e}")
     except Exception as e:
         print(f"Erro: {e}")
-    finally:
-        sock.close()
+
 
 if __name__ == "__main__":
     if len(sys.argv) < 2:

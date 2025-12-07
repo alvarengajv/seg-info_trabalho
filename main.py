@@ -71,5 +71,5 @@ def tls():
     print("TLS Finalizado.\n")
 
 if __name__ == "__main__":
-    tcp()
+    # tcp()
     tls()
